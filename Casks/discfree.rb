@@ -7,19 +7,21 @@ cask "discfree" do
   desc "Disk-space analyzer with safe dev-junk cleanup"
   homepage "https://github.com/thoughtf00l/discFree"
 
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "DiscFree.app"
 
+  postflight do
+    # The app is not notarized; clear the quarantine flag so Gatekeeper
+    # does not block the first launch.
+    system_command "/usr/bin/xattr",
+                   args:         ["-dr", "com.apple.quarantine", "#{appdir}/DiscFree.app"],
+                   must_succeed: false
+  end
+
   caveats <<~EOS
-    DiscFree is not notarized. Install with --no-quarantine to avoid the
-    Gatekeeper block:
-
-      brew install --cask --no-quarantine discfree
-
-    If already installed without it, clear the quarantine flag:
-
-      xattr -d com.apple.quarantine /Applications/DiscFree.app
+    DiscFree is not notarized; this cask clears macOS quarantine on install
+    so the app opens without a Gatekeeper prompt.
 
     Scanning protected folders (~/Library, Desktop, Documents) requires
     Full Disk Access: System Settings -> Privacy & Security -> Full Disk Access.
