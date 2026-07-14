@@ -1,6 +1,6 @@
 cask "discfree" do
-  version "1.0.4"
-  sha256 "325220db7a70990a8a589ef715121d281d41b377a6bb394e8cb193cf653778f6"
+  version "1.0.5"
+  sha256 "ba3bac90318d2716e7563e4fb45a4f0eb75be01366177c4af173ec3658b141b7"
 
   url "https://github.com/thoughtf00l/discFree/releases/download/v#{version}/DiscFree.zip"
   name "DiscFree"
