@@ -1,6 +1,6 @@
 cask "stackdust" do
-  version "1.0.8"
-  sha256 "58fbd70076b2f1be7d550b907d2f7b827ad05f44841ec5d7992d8b68c19002fa"
+  version "1.1.0"
+  sha256 "acc5b9c830d064845db98897ae219fd727d2c99c0a3f979b0bfcb478c7139227"
 
   url "https://github.com/thoughtf00l/stackdust/releases/download/v#{version}/Stackdust-#{version}.zip"
   name "Stackdust"
