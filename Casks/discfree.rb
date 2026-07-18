@@ -7,6 +7,8 @@ cask "discfree" do
   desc "Disk-space analyzer with safe dev-junk cleanup"
   homepage "https://github.com/thoughtf00l/discFree"
 
+  deprecate! date: "2026-07-18", because: "it was renamed to stackdust", replacement_cask: "stackdust"
+
   depends_on macos: :sequoia
 
   app "DiscFree.app"
